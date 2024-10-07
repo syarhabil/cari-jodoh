@@ -1,0 +1,372 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    margin: 0;
+    background: linear-gradient(to right, #e0f7fa, #ffffff); /* Gradasi awal */
+    background-size: 400% 400%; /* Memperbesar background untuk animasi */
+    animation: gradientAnimation 10s ease infinite; /* Tambahkan animasi dengan durasi 10 detik */
+}
+
+/* Keyframes untuk animasi background */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Container Utama */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+    /* Tambahkan margin di tepi kanan dan kiri agar lebih rapi */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Heading dan paragraf */
+h1, h2 {
+    color: #333;
+}
+
+p {
+    color: #555;
+}
+
+/* Form Input */
+.form-group {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    width: calc(100% - 40px);
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+
+}
+
+input:disabled {
+    background-color: #e0e0e0; /* Ubah ke warna abu-abu terang */
+    color: #888; /* Ubah warna teks agar lebih kontras */
+    border: 1px solid #b0b0b0; /* Border abu-abu lebih tegas */
+    cursor: not-allowed; /* Ganti cursor untuk menandakan input tidak bisa digunakan */
+    opacity: 0.5; /* Transisi ke semi-transparan saat disabled */
+}
+
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05); /* Sedikit membesarkan tombol saat hover */
+}
+
+/* Styling untuk pilihan gender */
+.gender-selection {
+    display: flex;
+    justify-content: center; /* Agar elemen radio berada di tengah */
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%; /* Pastikan elemen menggunakan lebar penuh */
+}
+
+.gender-option {
+    margin-bottom: 10px; /* Tambahkan margin bawah */
+    position: relative;
+    display: inline-block;
+}
+
+.gender-option input {
+    display: none; /* Sembunyikan radio button asli */
+}
+
+.custom-radio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-size: 16px;
+}
+
+.gender-option input + .custom-radio:hover {
+    background-color: #1a6fb8; /* Ubah warna hover lebih cerah */
+    transform: scale(1.05);
+}
+
+.gender-option input:checked + .custom-radio {
+    background-color: #1565C0; /* Ubah warna checked lebih jelas */
+    transform: scale(1.05);
+}
+.gender-selection input:disabled + .custom-radio {
+    opacity: 0.5;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gender-selection input:enabled + .custom-radio {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* Slot Hasil Jodoh */
+.result-container {
+    display: none;
+    margin-top: 20px;
+}
+
+/* Slot Hasil Jodoh */
+.slot {
+    font-size: 20px; /* Ukuran font sedikit lebih kecil untuk menyesuaikan nama */
+    padding: 10px 20px; /* Padding vertikal dan horizontal lebih kecil */
+    border: none;
+    border-radius: 8px; /* Sudut lebih halus */
+    margin: 10px auto;
+    display: inline-block;
+    width: auto; /* Sesuaikan lebar otomatis berdasarkan konten */
+    min-width: 100px; /* Lebar minimum agar slot tidak terlalu kecil */
+    height: auto; /* Tinggi otomatis sesuai konten */
+    text-align: center;
+    vertical-align: middle;
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan yang lebih halus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slot:hover {
+    transform: scale(1.05); /* Sedikit memperbesar saat hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Bayangan yang lebih besar saat hover */
+}
+/* Modal Hasil Jodoh */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animasi fade-in dengan transisi halus */
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px 15px; /* Padding vertikal dan horizontal yang lebih kecil */
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    width: 85%;
+    max-width: 350px; /* Batasan lebar maksimal */
+    transition: all 0.3s ease;
+}
+
+.modal-content h2 {
+    font-size: 24px; /* Ukuran lebih besar */
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 5px;
+}
+
+#closeModal {
+    margin-top: 15px;
+    background-color: #e74c3c;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#closeModal:hover {
+    background-color: #c0392b; /* Warna lebih gelap saat hover */
+}
+
+#finalResult {
+    font-size: 18px; /* Ukuran font hasil jodoh */
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Efek Gradasi untuk Modal */
+.modal-content {
+    background-color: #f9f9f9; /* Warna latar modal yang lebih netral */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+        max-width: 320px; /* Ukuran lebih kecil di perangkat mobile */
+    }
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+/* Perbaikan untuk mobile dan tablet */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 350px; /* Ukuran maksimal untuk tablet dan mobile */
+        padding: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box; /* Memastikan padding tidak menyebabkan overflow */
+    }
+
+    input {
+        width: 100%; /* Gunakan lebar penuh untuk input di mobile */
+        margin: 10px 0; /* Sesuaikan margin untuk tampilan lebih baik */
+        box-sizing: border-box; /* Memastikan padding dan border diperhitungkan */
+    }
+
+    button {
+        width: 100%; /* Tombol lebih lebar pada mobile */
+    }
+
+    .gender-selection {
+        flex-direction: row; /* Ubah ke row agar elemen sejajar secara horizontal */
+        justify-content: center; /* Agar elemen berada di tengah */
+        align-items: center;
+    }
+
+    .gender-option {
+        margin: 0 10px; /* Tambahkan margin di sisi kanan dan kiri agar tombol tidak dempet */
+    }
+
+    .custom-radio {
+        width: auto; /* Agar ukurannya mengikuti konten */
+        max-width: 150px; /* Sesuaikan agar tidak terlalu besar */
+        text-align: center;
+        padding: 10px 15px; /* Sesuaikan padding agar proporsional */
+    }
+
+    .slot {
+        width: auto;
+        font-size: 18px; /* Ukuran font lebih kecil agar proporsional di mobile */
+        padding: 8px 15px; /* Padding lebih kecil untuk kesesuaian */
+        min-width: 80px; /* Lebar minimum lebih kecil untuk perangkat mobile */
+    }
+
+    .modal-content {
+        width: 90%;
+        max-width: 320px;
+    }
+    
+}
+/* Untuk layar desktop lebar */
+@media (min-width: 1024px) {
+    body {
+        padding: 50px;
+    }
+    
+    .container {
+        max-width: 500px; /* Lebar yang lebih besar di desktop */
+        padding: 30px;
+    }
+    .gender-selection {
+        flex-direction: row; /* Tampilkan elemen secara horizontal */
+        justify-content: center; /* Pastikan elemen tetap di tengah */
+    }
+
+    .gender-option {
+        margin-right: 10px; /* Beri jarak antara opsi radio */
+    }
+}
+/* Footer Styles */
+.footer {
+    background-color: transparent; /* Pastikan tidak ada warna gelap pada footer */
+    margin-top: 50px;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.footer .heart {
+    color: red;
+    font-size: 16px;
+}
+
+.footer-link {
+    color: #3498db; /* Warna biru untuk link */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #2980b9; /* Biru yang lebih gelap saat hover */
+}
+
+/* Pesan singkat di bawah form */
+.small-note {
+    font-size: 12px; /* Ukuran font kecil */
+    color: #777; /* Warna abu-abu lembut */
+    margin-top: 15px;
+    line-height: 1.4; /* Tinggi baris untuk keterbacaan */
+}
+
+.small-note a {
+    color: #3498db; /* Warna biru untuk link */
+    text-decoration: none; /* Hilangkan garis bawah pada link */
+}
+
+.small-note a:hover {
+    color: #2980b9; /* Warna biru lebih gelap saat hover */
+    text-decoration: underline; /* Garis bawah saat hover */
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Jodoh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Selamat Datang di <br>Web Cari Jodoh!</h1>
+        <p>Pilih apakah kamu cowo atau cewe, lalu Klik cari pasangan!</p>
+        
+        <!-- Pemilihan jenis kelamin dengan style yang lebih baik -->
+        <div class="gender-selection">
+            <label class="gender-option">
+                <input type="radio" name="gender" value="male" id="genderMale"> 
+                <span class="custom-radio">Saya Cowo</span>
+            </label>
+            <label class="gender-option">
+                <input type="radio" name="gender" value="female" id="genderFemale"> 
+                <span class="custom-radio">Saya Cewe</span>
+            </label>
+        </div>
+
+        <!-- Input nama cowo dan cewe -->
+        <div class="form-group">
+            <input type="text" id="namaCowok" placeholder="Nama cowok" disabled>
+            <input type="text" id="namaCewek" placeholder="Nama cewek" disabled>
+        </div>
+        <button id="startButton" disabled>Cari Pasangan</button>
+    </div>
+    <p class="small-note">
+        Web ini hanya untuk seru-seruan, gaboleh baper ya 😄 <br>
+        Mau bikin web kaya ini? hub <a href="https://instagram.com/_shabiil" target="_blank">@_shabiil</a>
+    </p>
+    
+
+    <!-- Slot mesin hasil jodoh -->
+    <div id="resultContainer" class="result-container">
+        <h2 id="resultTitle">Hasil Jodoh</h2>
+        <div id="slotCowok" class="slot">-</div>
+        <div id="slotCewek" class="slot">-</div>
+    </div>
+
+    <!-- Modal hasil jodoh -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h2 id="finalResult"></h2>
+            <p id="saran"></p>
+            <button id="closeModal">Tutup</button>
+        </div>
+    </div>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="footer">
+    <p>Copyright &copy; 2024 made with <span class="heart">❤</span> by 
+        <a href="https://bit.ly/igambo" class="footer-link" target="_blank">Syarhabil</a>
+    </p>
+</footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        // Mencegah klik kanan
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    
+        // Mencegah shortcut seperti Ctrl+Shift+I (untuk Developer Tools)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I'.toLowerCase()) || (e.ctrlKey && e.key === 'U'.toLowerCase())) {
+                e.preventDefault();
+            }
+        });
+    </script>
+    
+</body>
+</html>
