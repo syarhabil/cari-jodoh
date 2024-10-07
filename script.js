@@ -11,8 +11,8 @@ const resultModal = document.getElementById('resultModal');
 const finalResult = document.getElementById('finalResult');
 const saran = document.getElementById('saran');
 const closeModal = document.getElementById('closeModal');
-const namaHabil = ["habil", "abil", "syarhabil", "syarhabil abdussalam", "abiw"];
-const namaDea = ["dea", "anum", "hanum", "dea harzianum"];
+const namaHabil = ["habil", "abil", "syarhabil", "bibiw", "syarhabil abdussalam", "abiw"];
+const namaDea = ["dea", "anum", "dea hanum", "dhanum", "danum", "hanum", "dea harzianum"];
 
 // Daftar nama cowok dan cewek untuk putaran jodoh (200 nama)
 const namaCowokList = [
